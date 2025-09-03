@@ -23,6 +23,7 @@ func NewIndexRoutes(logger logprovider.Logger, gin webprovider.MyGinEngine, s se
 }
 
 func (r IndexRoutes) SetUp() {
+	r.gin.Gin.Static("/static", "./static")
 
 	r.gin.Gin.GET("/index", func(c *gin.Context) {
 		c.File("./static/index.html")

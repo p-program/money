@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Upload the avatar you hate the most </title>
-<link rel="stylesheet" href="money.min.css">
+<link rel="stylesheet" href="/static/money.min.css">
 </head>
 
 <body>
@@ -21,7 +21,7 @@
           <div class="placeholder">点击或拖拽图片到此处</div>
           <!-- 实际头像 img 元素由 JS 插入 -->
         </div>
-        <div class="portrait-caption" style="display: none;">公司 / 个人头像</div>
+        <div class="portrait-caption" style="display: none;">头像</div>
         <!-- 隐藏文件输入：用于文件选择 -->
         <input type="file" id="fileInput" accept="image/*" aria-label="上传头像图片" />
       </div>
@@ -30,7 +30,7 @@
         <div style="display:flex;align-items:flex-end;gap:12px;justify-content:space-between;">
           <div>
             <div class="denomination">$100,000,000</div>
-            <div class="company">京巴布韦企业集团</div>
+            <div class="company" style="display: none;">京巴布韦企业集团</div>
           </div>
           <div class="serial" id="serialText"></div>
         </div>
@@ -38,7 +38,7 @@
         <div class="note-desc">广场轮渡水黄色，吃喝玩乐去广州</div>
 
         <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;">
-          <div class="hint">复古纸币纹理 + 现代企业审美</div>
+          <div class="hint" >不要上传活人的头像</div>
           <div class="controls">
             <button class="btn" id="replaceBtn">换人</button>
             <button class="btn ghost" id="resetBtn">重置</button>
@@ -50,7 +50,7 @@
 
     <footer>提示：替换后的头像仅在本地浏览器显示，不会上传到服务器。</footer>
   </div>
-  <script src="money.min.js"></script>
+  <script src="/static/money.min.js"></script>
 </body>
 
 </html>
