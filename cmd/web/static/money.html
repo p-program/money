@@ -11,14 +11,14 @@
 <body>
   <div class="note-wrapper">
     <header>
-      <h1 style="display: none;">以“京巴布韦”最大面值纸币为灵感</h1>
-      <p style="display: none;">点击头像更换为你的图片（支持拖拽选择）。</p>
+      <h1 style="display: none;" data-i18n="title">以“京巴布韦”最大面值纸币为灵感</h1>
+      <p style="display: none;" data-i18n="subtitle">点击头像更换为你的图片（支持拖拽选择）。</p>
     </header>
 
     <main class="banknote" role="img" aria-label="最大面值京巴布韦纸币（可替换头像）">
       <div class="portrait-area" id="portraitArea" title="点击以更换头像">
         <div class="portrait" id="portrait">
-          <div class="placeholder">点击或拖拽图片到此处</div>
+          <div class="placeholder" data-i18n="placeholder">点击或拖拽图片到此处</div>
           <!-- 实际头像 img 元素由 JS 插入 -->
         </div>
         <div class="portrait-caption" style="display: none;">头像</div>
@@ -30,25 +30,25 @@
         <div style="display:flex;align-items:flex-end;gap:12px;justify-content:space-between;">
           <div>
             <div class="denomination">$100,000,000</div>
-            <div class="company" style="display: none;">京巴布韦企业集团</div>
+            <div class="company" style="display: none;" data-i18n="company">京巴布韦企业集团</div>
           </div>
           <div class="serial" id="serialText"></div>
         </div>
 
-        <div class="note-desc">广场轮渡水黄色，吃喝玩乐去广州</div>
+        <div class="note-desc" data-i18n="desc">广场轮渡水黄色，吃喝玩乐去广州</div>
 
         <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;">
-          <div class="hint" >不要上传活人的头像</div>
+          <div class="hint" data-i18n="hint">不要上传活人的头像</div>
           <div class="controls">
-            <button class="btn" id="replaceBtn">换人</button>
-            <button class="btn ghost" id="resetBtn">重置</button>
-            <button class="btn" id="exportBtn">导出假币</button>
+            <button class="btn" id="replaceBtn" data-i18n="replace">换人</button>
+            <button class="btn ghost" id="resetBtn" data-i18n="reset">重置</button>
+            <button class="btn" id="exportBtn" data-i18n="export">导出假币</button>
           </div>
         </div>
       </div>
     </main>
 
-    <footer>提示：替换后的头像仅在本地浏览器显示，不会上传到服务器。</footer>
+    <footer data-i18n="footer">提示：替换后的头像仅在本地浏览器显示，不会上传到服务器。</footer>
   </div>
   <script src="/static/money.min.js"></script>
 </body>

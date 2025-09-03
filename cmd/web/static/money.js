@@ -205,3 +205,51 @@
     // 可选：键盘可访问性（按 Enter 打开文件选择）
     portraitArea.tabIndex = 0;
     portraitArea.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openFilePicker(); });
+
+
+    (function() {
+      var lang = "zh";
+      if (navigator.languages && navigator.languages.length) {
+        lang = navigator.languages[0].toLowerCase();
+      } else if (navigator.language) {
+        lang = navigator.language.toLowerCase();
+      } else if (navigator.userLanguage) {
+        lang = navigator.userLanguage.toLowerCase();
+      }
+      if (/en/i.test(navigator.userAgent)) {
+        lang = "en";
+      }
+      lang = lang.startsWith("zh") ? "zh" : "en";
+      // lang="en"
+      var translations = {
+        zh: {
+          title: "以“京巴布韦”最大面值纸币为灵感",
+          subtitle: "点击头像更换为你的图片（支持拖拽选择）。",
+          company: "京巴布韦企业集团",
+          desc: "广场轮渡水黄色，吃喝玩乐去广州",
+          hint: "不要上传活人的头像",
+          replace: "换人",
+          reset: "重置",
+          export: "导出假币",
+          footer: "提示：替换后的头像仅在本地浏览器显示，不会上传到服务器。",
+          placeholder: "点击或拖拽图片到此处"
+        },
+        en: {
+          title: "Inspired by the largest denomination banknote of 'Jingbabuwei'",
+          subtitle: "Click the avatar to replace it with your image (drag & drop supported).",
+          company: "Jingbabuwei Enterprise Group",
+          desc: "Yellow water at the Shantou ferry, have fun and eat in Guangzhou",
+          hint: "Do not upload photos of living people",
+          replace: "Replace",
+          reset: "Reset",
+          export: "Export",
+          footer: "Note: The replaced avatar is only displayed in your browser and will not be uploaded to the server.",
+          placeholder: "Click or drag an image here"
+        }
+      };
+      var dict = translations[lang] || translations["zh"];
+      document.querySelectorAll("[data-i18n]").forEach(function(el) {
+        var key = el.getAttribute("data-i18n");
+        if(dict[key]) el.textContent = dict[key];
+      });
+    })();
