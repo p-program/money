@@ -28,6 +28,10 @@ func (r IndexRoutes) SetUp() {
 		c.File("./static/index.html")
 	})
 
+	r.gin.Gin.GET("/money", func(c *gin.Context) {
+		c.File("./static/money.html")
+	})
+
 	index := r.gin.Gin.Group("/api")
 	{
 		//http://localhost:8080/api/health
