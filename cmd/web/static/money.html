@@ -405,13 +405,27 @@
       ctx.fill();
       ctx.restore();
 
-      // 如果有图片，加载并绘制裁切为圆形
+      // 如果有图片，直接使用 currentImage 绘制裁切为圆形
       if (currentImage && currentImage.src) {
-        let opts = {};
-        if (currentImage.dataset.ow) {
-          opts = { sx: 0, sy: 0, sw: parseInt(currentImage.dataset.ow), sh: parseInt(currentImage.dataset.oh) };
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(px + pw / 2, py + phh / 2, Math.min(pw, phh) / 2, 0, Math.PI * 2);
+        ctx.clip();
+
+        let sw = currentImage.naturalWidth;
+        let sh = currentImage.naturalHeight;
+        if (currentImage.dataset.ow && currentImage.dataset.oh) {
+          sw = parseInt(currentImage.dataset.ow);
+          sh = parseInt(currentImage.dataset.oh);
         }
-        await drawImageInCircle(ctx, currentImage.src, px, py, pw, phh, opts);
+        const ratio = Math.max(pw / sw, phh / sh);
+        const dw = sw * ratio;
+        const dh = sh * ratio;
+        const dx = px + (pw - dw) / 2;
+        const dy = py + (phh - dh) / 2;
+
+        ctx.drawImage(currentImage, dx, dy, dw, dh);
+        ctx.restore();
       } else {
         // 占位文字
         ctx.fillStyle = '#13506a';
